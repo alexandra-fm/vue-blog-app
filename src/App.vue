@@ -1,19 +1,33 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <MainLayout>
+      <div id="nav">
+        <router-link to="/">Home</router-link> |
+        <router-link to="/about">About</router-link>
+      </div>
+      <div class="container">
+        <router-view />
+      </div>
+    </MainLayout>
   </div>
 </template>
+
+<script>
+//import MainLayout from "@/layouts/MainLayout"
+import MainLayout from "./layouts/MainLayout"
+
+export default {
+  components: {
+    MainLayout,
+  },
+}
+</script>
 
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
