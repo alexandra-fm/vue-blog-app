@@ -1,10 +1,6 @@
 <template>
   <div id="app">
     <MainLayout>
-      <div id="nav">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>
-      </div>
       <div class="container">
         <router-view />
       </div>
@@ -24,11 +20,13 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./assets/styles/_variabels";
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: #1a1b1b;
 }
 
 #nav {

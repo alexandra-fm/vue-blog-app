@@ -1,20 +1,28 @@
 <template>
   <nav>
     <div class="container nav-wrapper">
-      <a href="#" class="brand-logo">My Blog </a>
+      <span class="brand-logo">My Blog </span>
       <ul id="nav-mobile" class="right nav-hide">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
+        <li>
+          <router-link to="/" active-class="active">Список</router-link>
+        </li>
+        <li>
+          <router-link to="/create-post" active-class="active"
+            >Создать</router-link
+          >
+        </li>
       </ul>
     </div>
   </nav>
 </template>
 
 <style lang="scss" scoped>
+.router-link-exact-active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
 nav {
   position: relative;
-  background-color: rgb(165, 165, 165);
+  background-color: var(--addition-color);
 }
 @media only screen and (max-width: 992px) {
   nav .brand-logo {

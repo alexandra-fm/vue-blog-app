@@ -10,9 +10,8 @@ async function fetchResource(url) {
   return await res.json()
 }
 
-async function fetchAllPosts() {
-  const posts = await fetchResource(`/posts?_limit=3`)
-
+async function fetchAllPosts(quantity) {
+  const posts = await fetchResource(`/posts?_limit=${quantity}`)
   return posts
 }
 
