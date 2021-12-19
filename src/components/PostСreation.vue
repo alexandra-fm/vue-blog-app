@@ -11,9 +11,9 @@
         <div class="input-field">
           <input
             id="title"
-            v-model="title"
             type="text"
             class="validate"
+            v-model="title"
             required
           />
           <label for="title">Заголовок</label>
@@ -23,8 +23,8 @@
         <div class="input-field">
           <textarea
             id="description"
-            v-model="description"
             class="validate materialize-textarea"
+            v-model="description"
             required
           ></textarea>
           <label for="description">Краткое описание</label>
@@ -37,8 +37,8 @@
         <div class="input-field">
           <textarea
             id="body"
-            v-model="body"
             class="validate materialize-textarea"
+            v-model="body"
             required
           ></textarea>
           <label for="body">Текст</label>
@@ -57,6 +57,7 @@ import { mapActions } from "vuex"
 
 export default {
   name: "PostСreation",
+
   data() {
     return {
       date: new Date(),
@@ -66,6 +67,7 @@ export default {
       descrLength: 200,
     }
   },
+
   watch: {
     description: function () {
       const descrLength = this.description.length - 1
@@ -75,11 +77,13 @@ export default {
       }
     },
   },
+
   methods: {
     ...mapActions(["createPost"]),
 
     submitHandler() {
       const newPost = {
+        userId: 1,
         id: Date.now(),
         title: this.title,
         body: this.body,
@@ -96,29 +100,39 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h5 {
+  color: var(--main-color);
+}
+
 .post-creation-date {
   margin: 1.5rem 0;
   color: var(--addition-color);
 }
+
 .material-icons {
   font-size: 1.6rem;
 }
+
 .input-field input[type="text"]:focus,
 .input-field input[type="text"].valid {
   border-bottom: 1px solid var(--main-color) !important;
   box-shadow: 0 1px 0 0 var(--main-color) !important;
 }
+
 .input-field input[type="text"]:focus + label {
   color: var(--main-color) !important;
 }
+
 textarea.materialize-textarea:focus,
 textarea.materialize-textarea.valid {
   border-bottom: 1px solid var(--main-color) !important;
   box-shadow: 0 1px 0 0 var(--main-color) !important;
 }
+
 textarea.materialize-textarea:focus + label {
   color: var(--main-color) !important;
 }
+
 .btn {
   background-color: var(--main-color);
 }

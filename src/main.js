@@ -1,5 +1,6 @@
 import Vue from "vue"
 import App from "./App.vue"
+import Test from "./test"
 import router from "./router"
 import store from "./store"
 import dateFilter from "./filters/date.filter"
@@ -11,5 +12,6 @@ Vue.filter("date", dateFilter)
 new Vue({
   router,
   store,
+  Test,
   render: h => h(App),
 }).$mount("#app")

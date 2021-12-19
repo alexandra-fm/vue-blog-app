@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="about-wrapp">
     <PostСreation />
   </div>
 </template>
@@ -13,3 +13,9 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="scss">
+.about-wrapp {
+  margin-top: 1rem;
+}
+</style>

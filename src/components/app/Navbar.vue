@@ -20,20 +20,24 @@
 .router-link-exact-active {
   background-color: rgba(0, 0, 0, 0.1);
 }
+
 nav {
   position: relative;
   background-color: var(--addition-color);
 }
+
 @media only screen and (max-width: 992px) {
   nav .brand-logo {
     left: 5% !important;
     transform: translateX(-50%);
   }
 }
+
 @media only screen and (max-width: 500px) {
   .nav-hide {
     display: none !important;
   }
+
   nav .brand-logo {
     left: 50% !important;
   }
