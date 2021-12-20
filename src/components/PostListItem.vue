@@ -2,7 +2,7 @@
   <div class="card col s10 offset-s1">
     <div class="card-content">
       <span class="card-title">{{ post.title }}</span>
-      <p>{{ post.body }}</p>
+      <p>{{ post.description }}</p>
       <span class="card-additions">
         <i class="material-icons">date_range</i>
         <p>{{ post.date }}</p>
@@ -12,16 +12,16 @@
     </div>
 
     <div class="card-action">
-      <router-link :to="'/post/' + post.id">
-        <button class="btn btn-small" type="submit">Читать далее</button>
-      </router-link>
+      <button class="btn btn-small" type="button" @click="openPost">
+        Читать далее
+      </button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "PostListCard",
+  name: "PostListItem",
 
   props: {
     post: {
@@ -30,8 +30,10 @@ export default {
     },
   },
 
-  data() {
-    return {}
+  methods: {
+    openPost() {
+      this.$emit("openPost", this.post.id)
+    },
   },
 }
 </script>
@@ -56,7 +58,11 @@ a {
 }
 
 .btn {
-  background-color: var(--main-color);
+  background-color: var(--accent-color);
+}
+
+.card-title {
+  text-transform: capitalize;
 }
 
 .card-content,

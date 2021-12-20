@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex"
+import dateFilter from "../filters/date.filter"
 
 export default {
   name: "PostСreation",
@@ -79,8 +79,6 @@ export default {
   },
 
   methods: {
-    ...mapActions(["createPost"]),
-
     submitHandler() {
       const newPost = {
         userId: 1,
@@ -89,11 +87,9 @@ export default {
         body: this.body,
         description: this.description,
         comments: [],
-        date: this.date,
+        date: dateFilter(new Date(), "datetime"),
       }
-
-      this.createPost(newPost)
-      this.$router.push("/")
+      this.$emit("createPost", newPost)
     },
   },
 }
@@ -101,7 +97,7 @@ export default {
 
 <style lang="scss" scoped>
 h5 {
-  color: var(--main-color);
+  color: var(--accent-color);
 }
 
 .post-creation-date {
@@ -111,29 +107,5 @@ h5 {
 
 .material-icons {
   font-size: 1.6rem;
-}
-
-.input-field input[type="text"]:focus,
-.input-field input[type="text"].valid {
-  border-bottom: 1px solid var(--main-color) !important;
-  box-shadow: 0 1px 0 0 var(--main-color) !important;
-}
-
-.input-field input[type="text"]:focus + label {
-  color: var(--main-color) !important;
-}
-
-textarea.materialize-textarea:focus,
-textarea.materialize-textarea.valid {
-  border-bottom: 1px solid var(--main-color) !important;
-  box-shadow: 0 1px 0 0 var(--main-color) !important;
-}
-
-textarea.materialize-textarea:focus + label {
-  color: var(--main-color) !important;
-}
-
-.btn {
-  background-color: var(--main-color);
 }
 </style>

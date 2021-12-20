@@ -1,17 +1,17 @@
 <template>
   <div>
-    <Navbar />
+    <TheNavbar />
     <slot />
   </div>
 </template>
 
 <script>
-import Navbar from "../components/app/Navbar"
+import TheNavbar from "../components/app/TheNavbar"
 
 export default {
-  name: "main-layout",
+  name: "MainLayout",
   components: {
-    Navbar,
+    TheNavbar,
   },
 }
 </script>

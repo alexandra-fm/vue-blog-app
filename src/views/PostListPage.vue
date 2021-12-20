@@ -1,7 +1,12 @@
 <template>
   <div class="post-list-wrapp">
     <div class="row" v-if="allPosts">
-      <PostCard :post="post" v-for="post in allPosts" :key="post.id" />
+      <PostListItem
+        :post="post"
+        v-for="post in allPosts"
+        :key="post.id"
+        @openPost="getPost"
+      />
     </div>
 
     <router-link to="/create-post" class="link row" v-else>
@@ -12,25 +17,30 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex"
-import PostCard from "../components/PostCard.vue"
+import PostListItem from "../components/PostListItem.vue"
 
 export default {
-  name: "PostPage",
+  name: "PostListPage",
 
   components: {
-    PostCard,
+    PostListItem,
   },
 
   computed: {
     ...mapGetters({ allPosts: "getAllPosts" }),
   },
 
-  async mounted() {
+  mounted() {
     this.fetchAllPosts()
   },
 
   methods: {
-    ...mapActions(["fetchAllPosts"]),
+    ...mapActions(["fetchAllPosts", "fetchPostById"]),
+
+    getPost(id) {
+      this.fetchPostById(id)
+      this.$router.push(`post/${id}`)
+    },
   },
 }
 </script>
@@ -41,6 +51,6 @@ export default {
 }
 
 .link {
-  color: var(--main-color);
+  color: var(--accent-color);
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
   <nav>
     <div class="container nav-wrapper">
-      <span class="brand-logo">My Blog </span>
-      <ul id="nav-mobile" class="right nav-hide">
+      <span class="brand-logo nav-hide">My Blog </span>
+      <ul id="nav-mobile" class="right nav-mobile">
         <li>
           <router-link to="/" active-class="active">Список</router-link>
         </li>
@@ -38,8 +38,9 @@ nav {
     display: none !important;
   }
 
-  nav .brand-logo {
-    left: 50% !important;
+  .nav-mobile {
+    left: -30%;
+    position: relative;
   }
 }
 </style>

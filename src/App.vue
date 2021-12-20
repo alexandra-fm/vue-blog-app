@@ -9,7 +9,6 @@
 </template>
 
 <script>
-//import MainLayout from "@/layouts/MainLayout"
 import MainLayout from "./layouts/MainLayout"
 
 export default {
@@ -26,19 +25,34 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #1a1b1b;
+  color: var(--main-color);
 }
 
-#nav {
-  padding: 30px;
+.input-field input[type="text"]:focus,
+.input-field input[type="text"].valid {
+  border-bottom: 1px solid var(--accent-color) !important;
+  box-shadow: 0 1px 0 0 var(--accent-color) !important;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+textarea.materialize-textarea:focus,
+textarea.materialize-textarea.valid {
+  border-bottom: 1px solid var(--accent-color) !important;
+  box-shadow: 0 1px 0 0 var(--accent-color) !important;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+textarea.materialize-textarea:focus + label {
+  color: var(--accent-color) !important;
+}
+
+.input-field input[type="text"]:focus + label {
+  color: var(--accent-color) !important;
+}
+
+.btn {
+  background-color: var(--accent-color);
+}
+
+.btn:hover {
+  background-color: var(--accent-color);
 }
 </style>
